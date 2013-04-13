@@ -59,7 +59,7 @@ class HTML_QuickForm_RuleRegistry
      * @param     string    $type       Either: 'regex', 'function' or null
      * @param     string    $data1      Name of function, regular expression or
      *                                  HTML_QuickForm_Rule object class name
-     * @param     string    $data2      Object parent of above function or HTML_QuickForm_Rule file path
+     * @param     string    $data2      Object parent of above function
      */
     public function registerRule($ruleName, $type, $data1, $data2 = null)
     {
@@ -79,11 +79,11 @@ class HTML_QuickForm_RuleRegistry
         } elseif (is_object($data1)) {
             // An instance of HTML_QuickForm_Rule
             $this->_rules[strtolower(get_class($data1))] = $data1;
-            $GLOBALS['_HTML_QuickForm_registered_rules'][$ruleName] = array(strtolower(get_class($data1)), null);
+            $GLOBALS['_HTML_QuickForm_registered_rules'][$ruleName] = strtolower(get_class($data1));
 
         } else {
             // Rule class name
-            $GLOBALS['_HTML_QuickForm_registered_rules'][$ruleName] = array(strtolower($data1), $data2);
+            $GLOBALS['_HTML_QuickForm_registered_rules'][$ruleName] = strtolower($data1);
         }
     }
 
@@ -95,12 +95,9 @@ class HTML_QuickForm_RuleRegistry
      */
     public function &getRule($ruleName)
     {
-        list($class, $path) = $GLOBALS['_HTML_QuickForm_registered_rules'][$ruleName];
+        $class = $GLOBALS['_HTML_QuickForm_registered_rules'][$ruleName];
 
         if (!isset($this->_rules[$class])) {
-            if (!empty($path)) {
-                include_once($path);
-            }
             $this->_rules[$class] = new $class();
         }
         $this->_rules[$class]->setName($ruleName);

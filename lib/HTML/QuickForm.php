@@ -48,19 +48,19 @@ $GLOBALS['HTML_QUICKFORM_ELEMENT_TYPES'] =
  * @global array $GLOBALS['_HTML_QuickForm_registered_rules']
  */
 $GLOBALS['_HTML_QuickForm_registered_rules'] = array(
-    'required'      => array('html_quickform_rule_required', 'HTML/QuickForm/Rule/Required.php'),
-    'maxlength'     => array('html_quickform_rule_range',    'HTML/QuickForm/Rule/Range.php'),
-    'minlength'     => array('html_quickform_rule_range',    'HTML/QuickForm/Rule/Range.php'),
-    'rangelength'   => array('html_quickform_rule_range',    'HTML/QuickForm/Rule/Range.php'),
-    'email'         => array('html_quickform_rule_email',    'HTML/QuickForm/Rule/Email.php'),
-    'regex'         => array('html_quickform_rule_regex',    'HTML/QuickForm/Rule/Regex.php'),
-    'lettersonly'   => array('html_quickform_rule_regex',    'HTML/QuickForm/Rule/Regex.php'),
-    'alphanumeric'  => array('html_quickform_rule_regex',    'HTML/QuickForm/Rule/Regex.php'),
-    'numeric'       => array('html_quickform_rule_regex',    'HTML/QuickForm/Rule/Regex.php'),
-    'nopunctuation' => array('html_quickform_rule_regex',    'HTML/QuickForm/Rule/Regex.php'),
-    'nonzero'       => array('html_quickform_rule_regex',    'HTML/QuickForm/Rule/Regex.php'),
-    'callback'      => array('html_quickform_rule_callback', 'HTML/QuickForm/Rule/Callback.php'),
-    'compare'       => array('html_quickform_rule_compare',  'HTML/QuickForm/Rule/Compare.php')
+    'required'      => 'HTML_QuickForm_Rule_Required',
+    'maxlength'     => 'HTML_QuickForm_Rule_Range',
+    'minlength'     => 'HTML_QuickForm_Rule_Range',
+    'rangelength'   => 'HTML_QuickForm_Rule_Range',
+    'email'         => 'HTML_QuickForm_Rule_Email',
+    'regex'         => 'HTML_QuickForm_Rule_Regex',
+    'lettersonly'   => 'HTML_QuickForm_Rule_Regex',
+    'alphanumeric'  => 'HTML_QuickForm_Rule_Regex',
+    'numeric'       => 'HTML_QuickForm_Rule_Regex',
+    'nopunctuation' => 'HTML_QuickForm_Rule_Regex',
+    'nonzero'       => 'HTML_QuickForm_Rule_Regex',
+    'callback'      => 'HTML_QuickForm_Rule_Callback',
+    'compare'       => 'HTML_QuickForm_Rule_Compare',
 );
 
 /**#@+
@@ -317,7 +317,7 @@ class HTML_QuickForm extends HTML_Common
      * @param     string    $ruleName   Name of validation rule
      * @param     string    $type       Either: 'regex', 'function' or 'rule' for an HTML_QuickForm_Rule object
      * @param     string    $data1      Name of function, regular expression or HTML_QuickForm_Rule classname
-     * @param     string    $data2      Object parent of above function or HTML_QuickForm_Rule file path
+     * @param     string    $data2      Object parent of above function
      */
     public function registerRule($ruleName, $type, $data1, $data2 = null)
     {
