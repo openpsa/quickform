@@ -15,13 +15,11 @@
 class HTML_QuickForm_Rule_Range extends HTML_QuickForm_Rule
 {
     /**
-     * Validates a value using a range comparison
+     * @inheritdoc
      *
-     * @param     string    $value      Value to be checked
-     * @param     mixed     $options    Int for length, array for range
-     * @return    boolean   true if value is valid
+     * Validates a value using a range comparison
      */
-    public function validate($value, $options)
+    public function validate($value, $options = null)
     {
         $length = strlen($value);
         switch ($this->name) {

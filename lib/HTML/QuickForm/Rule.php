@@ -14,26 +14,30 @@
  */
 abstract class HTML_QuickForm_Rule
 {
-   /**
-    * Name of the rule to use in validate method
-    *
-    * This property is used in more global rules like Callback and Regex
-    * to determine which callback and which regex is to be used for validation
-    *
-    * @var  string
-    */
+    /**
+     * Name of the rule to use in validate method
+     *
+     * This property is used in more global rules like Callback and Regex
+     * to determine which callback and which regex is to be used for validation
+     *
+     * @var  string
+     */
     public $name;
 
-   /**
-    * Validates a value
-    */
-    abstract public function validate($value);
+    /**
+     * Validates a value
+     *
+     * @param     string    $value      Value to be checked
+     * @param     mixed     $options    Int for length, array for range
+     * @return    boolean   true if value is valid
+     */
+    abstract public function validate($value, $options = null);
 
-   /**
-    * Sets the rule name
-    *
-    * @param  string    rule name
-    */
+    /**
+     * Sets the rule name
+     *
+     * @param  string    rule name
+     */
     public function setName($ruleName)
     {
         $this->name = $ruleName;
