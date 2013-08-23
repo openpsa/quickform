@@ -300,5 +300,34 @@ class HTML_QuickForm_Renderer_Array extends HTML_QuickForm_Renderer
             $this->_elementStyles[$elementName] = $styleName;
         }
     }
+    
+    /**
+     * Called when visiting a form, after processing all form elements
+     *
+     * @param    HTML_QuickForm  a form being visited
+     * @access   public
+     * @return   void
+     * @abstract
+     */
+    function finishForm(&$form)
+    {
+      return;
+    }
+
+    /**
+     * Called when visiting a raw HTML/text pseudo-element
+     *
+     * Only implemented in Default renderer. Usage of 'html' elements is
+     * discouraged, templates should be used instead.
+     *
+     * @param    HTML_QuickForm_html     a 'raw html' element being visited
+     * @access   public
+     * @return   void
+     * @abstract
+     */
+    function renderHtml(&$data)
+    {
+      return;
+    }    
 }
 ?>
