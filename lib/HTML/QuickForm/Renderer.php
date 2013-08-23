@@ -17,7 +17,6 @@
  */
 abstract class HTML_QuickForm_Renderer
 {
-
    /**
     * Called when visiting a form, before processing any form elements
     *
@@ -78,6 +77,8 @@ abstract class HTML_QuickForm_Renderer
     * Called when visiting a group, after processing all group elements
     *
     * @param    HTML_QuickForm_group    A group being visited
+    * @return   void
     */
+    abstract public function finishGroup(&$group);
 }
 ?>
