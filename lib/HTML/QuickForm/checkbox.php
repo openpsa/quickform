@@ -180,7 +180,7 @@ class HTML_QuickForm_checkbox extends HTML_QuickForm_input
    /**
     * Return true if the checkbox is checked, null if it is not checked (getValue() returns false)
     */
-    function exportValue(&$submitValues, $assoc = false)
+    public function exportValue(&$submitValues, $assoc = false)
     {
         $value = $this->_findValue($submitValues);
         if (null === $value) {

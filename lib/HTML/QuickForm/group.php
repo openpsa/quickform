@@ -369,7 +369,7 @@ class HTML_QuickForm_group extends HTML_QuickForm_element
     * As usual, to get the group's value we access its elements and call
     * their exportValue() methods
     */
-    function exportValue(&$submitValues, $assoc = false)
+    public function exportValue(&$submitValues, $assoc = false)
     {
         $value = null;
         foreach (array_keys($this->_elements) as $key) {

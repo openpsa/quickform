@@ -124,7 +124,7 @@ class HTML_QuickForm_static extends HTML_QuickForm_element
    /**
     * We override this here because we don't want any values from static elements
     */
-    function exportValue(&$submitValues, $assoc = false)
+    public function exportValue(&$submitValues, $assoc = false)
     {
         return null;
     }
