@@ -10,3 +10,7 @@ The main differences to the original package are:
  - Compatible with PHP 5.4: It will run without producing warnings or deprecated notices
  - No PEAR dependencies: ``HTML_Common`` is replaced by a bundled version, and ``PEAR_Error``s are replaced by exceptions
  - Support for Composer autoloading: All ``include`` statements have been removed in favor of classmap autoloading
+
+### API Compatibility
+
+ - Some calls are listed in the PEAR documentation as static, but making them statically callable without warnings would require significant rewrites and might break other use cases. So if you get errors about assuming `$this` from an incompatible context, just change your calls to nonstatic ones
