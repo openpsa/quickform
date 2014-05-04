@@ -269,12 +269,9 @@ class HTML_QuickForm_Renderer_Default extends HTML_QuickForm_Renderer
     }
 
    /**
-    * Renders an hidden element
-    * Called when visiting a hidden element
-    *
-    * @param HTML_QuickForm_element     form element being visited
+    * @inheritDoc
     */
-    public function renderHidden(&$element)
+    public function renderHidden(&$element, $required, $error)
     {
         $this->_hiddenHtml .= $element->toHtml() . "\n";
     }

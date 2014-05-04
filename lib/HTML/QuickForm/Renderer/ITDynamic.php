@@ -165,8 +165,10 @@ class HTML_QuickForm_Renderer_ITDynamic extends HTML_QuickForm_Renderer
         $this->_tpl->parseCurrentBlock();
     }
 
-
-    function renderHidden(&$element)
+    /**
+     * @inheritDoc
+     */
+    function renderHidden(&$element, $required, $error)
     {
         $this->_tpl->setVariable('qf_hidden', $element->toHtml());
         $this->_tpl->parse('qf_hidden_loop');

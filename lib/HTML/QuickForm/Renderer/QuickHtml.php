@@ -124,11 +124,9 @@ class HTML_QuickForm_Renderer_QuickHtml extends HTML_QuickForm_Renderer_Default
     }
 
     /**
-     * Gets the html for a hidden element and adds it to the array.
-     *
-     * @param HTML_QuickForm_element    hidden form element being visited
+     * @inheritDoc
      */
-    public function renderHidden(&$element)
+    public function renderHidden(&$element, $required, $error)
     {
         $this->renderedElements[] = array(
                 'name' => $element->getName(),

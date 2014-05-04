@@ -38,15 +38,5 @@ class HTML_QuickForm_hidden extends HTML_QuickForm_input
     {
         return false;
     }
-
-   /**
-    * Accepts a renderer
-    *
-    * @param HTML_QuickForm_Renderer    renderer object
-    */
-    public function accept(HTML_QuickForm_Renderer &$renderer, $required = false, $error = null)
-    {
-        $renderer->renderHidden($this);
-    }
 }
 ?>

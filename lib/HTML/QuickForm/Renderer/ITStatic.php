@@ -230,11 +230,9 @@ class HTML_QuickForm_Renderer_ITStatic extends HTML_QuickForm_Renderer
     }
 
    /**
-    * Called when visiting a hidden element
-    *
-    * @param    HTML_QuickForm_element  hidden element being visited
+    * @inheritDoc
     */
-    public function renderHidden(&$element)
+    public function renderHidden(&$element, $required, $error)
     {
         if ($this->_tpl->placeholderExists($this->_formName . '_hidden')) {
             $this->_hidden .= $element->toHtml();

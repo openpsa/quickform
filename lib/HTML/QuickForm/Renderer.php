@@ -51,8 +51,10 @@ abstract class HTML_QuickForm_Renderer
     * Called when visiting a hidden element
     *
     * @param    HTML_QuickForm_element  a hidden element being visited
+    * @param    bool                    Whether an element is required
+    * @param    string                  An error message associated with an element
     */
-    abstract public function renderHidden(&$element);
+    abstract public function renderHidden(&$element, $required, $error);
 
    /**
     * Called when visiting a raw HTML/text pseudo-element

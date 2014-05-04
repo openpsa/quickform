@@ -126,12 +126,15 @@ class HTML_QuickForm_Renderer_Object extends HTML_QuickForm_Renderer
         $this->_storeObject($elObj);
     }
 
-    function renderHidden(&$element)
+    /**
+     * @inheritDoc
+     */
+    function renderHidden(&$element, $required, $error)
     {
         if($this->_collectHidden) {
             $this->_obj->hidden .= $element->toHtml() . "\n";
         } else {
-            $this->renderElement($element, false, null);
+            $this->renderElement($element, $required, $error);
         }
     }
 
