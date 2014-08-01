@@ -73,7 +73,7 @@ class HTML_QuickForm_hiddenselect extends HTML_QuickForm_select
     */
     public function accept(HTML_QuickForm_Renderer &$renderer, $required = false, $error = null)
     {
-        $renderer->renderHidden($this);
+        $renderer->renderHidden($this, $required, $error);
     }
 }
 ?>
