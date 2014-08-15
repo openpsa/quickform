@@ -9,7 +9,9 @@ The main differences to the original package are:
 
  - Compatible with PHP 5.4: It will run without producing warnings or deprecated notices
  - No PEAR dependencies: `HTML_Common` is replaced by a bundled version, and `PEAR_Error`s are replaced by exceptions
- - Support for Composer autoloading: All ``include`` statements have been removed in favor of classmap autoloading
+ - Support for Composer autoloading: All `include` statements have been removed in favor of classmap autoloading
+ - Upon popular request, `HTML_QuickForm_Renderer_Tableless` has been included and is available out of the box (PHP only, you need
+   to supply your own stylesheet)
 
 ### API Compatibility
 
