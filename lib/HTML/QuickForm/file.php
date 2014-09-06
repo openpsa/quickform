@@ -8,13 +8,6 @@
  * @license     http://www.php.net/license/3_01.txt PHP License 3.01
  */
 
-// register file-related rules
-$registry =& HTML_QuickForm_RuleRegistry::singleton();
-$registry->registerRule('uploadedfile', 'callback', '_ruleIsUploadedFile', 'HTML_QuickForm_file');
-$registry->registerRule('maxfilesize', 'callback', '_ruleCheckMaxFileSize', 'HTML_QuickForm_file');
-$registry->registerRule('mimetype', 'callback', '_ruleCheckMimeType', 'HTML_QuickForm_file');
-$registry->registerRule('filename', 'callback', '_ruleCheckFileName', 'HTML_QuickForm_file');
-
 /**
  * HTML class for a file upload field
  *
@@ -41,6 +34,13 @@ class HTML_QuickForm_file extends HTML_QuickForm_input
      */
     public function __construct($elementName=null, $elementLabel=null, $attributes=null)
     {
+        // register file-related rules
+        $registry =& HTML_QuickForm_RuleRegistry::singleton();
+        $registry->registerRule('uploadedfile', 'callback', '_ruleIsUploadedFile', $this);
+        $registry->registerRule('maxfilesize', 'callback', '_ruleCheckMaxFileSize', $this);
+        $registry->registerRule('mimetype', 'callback', '_ruleCheckMimeType', $this);
+        $registry->registerRule('filename', 'callback', '_ruleCheckFileName', $this);
+
         parent::__construct($elementName, $elementLabel, $attributes);
         $this->setType('file');
     }
@@ -187,7 +187,7 @@ class HTML_QuickForm_file extends HTML_QuickForm_input
             (UPLOAD_ERR_FORM_SIZE == $elementValue['error'] || UPLOAD_ERR_INI_SIZE == $elementValue['error'])) {
             return false;
         }
-        if (!HTML_QuickForm_file::_ruleIsUploadedFile($elementValue)) {
+        if (!$this->_ruleIsUploadedFile($elementValue)) {
             return true;
         }
         return ($maxSize >= @filesize($elementValue['tmp_name']));
@@ -203,7 +203,7 @@ class HTML_QuickForm_file extends HTML_QuickForm_input
      */
     function _ruleCheckMimeType($elementValue, $mimeType)
     {
-        if (!HTML_QuickForm_file::_ruleIsUploadedFile($elementValue)) {
+        if (!$this->_ruleIsUploadedFile($elementValue)) {
             return true;
         }
         if (is_array($mimeType)) {
@@ -222,7 +222,7 @@ class HTML_QuickForm_file extends HTML_QuickForm_input
      */
     function _ruleCheckFileName($elementValue, $regex)
     {
-        if (!HTML_QuickForm_file::_ruleIsUploadedFile($elementValue)) {
+        if (!$this->_ruleIsUploadedFile($elementValue)) {
             return true;
         }
         return (bool)preg_match($regex, $elementValue['name']);
