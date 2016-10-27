@@ -38,5 +38,13 @@ class HTML_QuickForm_hidden extends HTML_QuickForm_input
     {
         return false;
     }
+
+	/**
+    * Render the element as a hidden field
+    */
+    public function accept(HTML_QuickForm_Renderer &$renderer, $required = false, $error = null)
+    {
+        $renderer->renderHidden($this, $required, $error);
+    }
 }
 ?>
