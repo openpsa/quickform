@@ -96,28 +96,28 @@ class HTML_QuickForm_Renderer_Array extends HTML_QuickForm_Renderer
      *
      * @var array
      */
-    private $_ary;
+    protected $_ary;
 
     /**
      * Number of sections in the form (i.e. number of headers in it)
      *
      * @var integer
      */
-    private $_sectionCount;
+    protected $_sectionCount;
 
     /**
      * Current section number
      *
      * @var integer
      */
-    private $_currentSection;
+    protected $_currentSection;
 
     /**
      * Array representing current group
      *
      * @var array
      */
-    private $_currentGroup = null;
+    protected $_currentGroup = null;
 
     /**
      * Additional style information for different elements
@@ -178,7 +178,6 @@ class HTML_QuickForm_Renderer_Array extends HTML_QuickForm_Renderer
         if ($this->_collectHidden) {
             $this->_ary['hidden'] = '';
         }
-        $this->_elementIdx     = 1;
         $this->_currentSection = null;
         $this->_sectionCount   = 0;
     }
@@ -247,7 +246,7 @@ class HTML_QuickForm_Renderer_Array extends HTML_QuickForm_Renderer
      * @param  string                    Error associated with the element
      * @return array
      */
-    private function _elementToArray(&$element, $required, $error)
+    protected function _elementToArray(&$element, $required, $error)
     {
         $ret = array(
             'name'      => $element->getName(),
@@ -291,7 +290,7 @@ class HTML_QuickForm_Renderer_Array extends HTML_QuickForm_Renderer
      *
      * @param array  Array representation of an element
      */
-    private function _storeArray($elAry)
+    protected function _storeArray($elAry)
     {
         // where should we put this element...
         if (is_array($this->_currentGroup) && ('group' != $elAry['type'])) {
