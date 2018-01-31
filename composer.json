@@ -3,7 +3,7 @@
     "type": "library",
     "description": "PHP 5.4 compatible fork of HTML_QuickForm",
     "keywords": ["form", "quickform"],
-    "license": "PHP License 3.01",
+    "license": "PHP-3.01",
     "authors": [
         {
             "name": "Andreas Flack",
