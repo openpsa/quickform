@@ -80,6 +80,14 @@ class HTML_QuickForm_Renderer_ITDynamic extends HTML_QuickForm_Renderer
         $this->_tpl->setCurrentBlock('qf_main_loop');
     }
 
+    public function startForm(&$form)
+    {
+    }
+
+    public function renderHtml(&$data)
+    {
+    }
+
     function finishForm(&$form)
     {
         // display errors above form
@@ -267,4 +275,3 @@ class HTML_QuickForm_Renderer_ITDynamic extends HTML_QuickForm_Renderer
         $this->_headerBlock = $blockName;
     }
 }
-?>
