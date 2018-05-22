@@ -6,7 +6,7 @@
  * @author      Adam Daniel <adaniel1@eesus.jnj.com>
  * @copyright   2001-2009 The PHP Group
  * @license     http://www.php.net/license/3_01.txt PHP License 3.01
- */ 
+ */
 
 /**
  * Base class for all HTML classes
@@ -18,7 +18,7 @@ abstract class HTML_Common
 {
     /**
      * Associative array of attributes
-     * 
+     *
      * @var     array
      * @access  private
      */
@@ -26,7 +26,7 @@ abstract class HTML_Common
 
     /**
      * Tab offset of the tag
-     * 
+     *
      * @var     int
      * @access  private
      */
@@ -34,7 +34,7 @@ abstract class HTML_Common
 
     /**
      * Tab string
-     * 
+     *
      * @var       string
      * @access    private
      */
@@ -42,7 +42,7 @@ abstract class HTML_Common
 
     /**
      * Contains the line end string
-     * 
+     *
      * @var       string
      * @access    private
      */
@@ -50,7 +50,7 @@ abstract class HTML_Common
 
     /**
      * HTML comment on the object
-     * 
+     *
      * @var       string
      * @access    private
      */
@@ -58,7 +58,7 @@ abstract class HTML_Common
 
     /**
      * Class constructor
-     * 
+     *
      * @param    mixed   $attributes     Associative array of table tag attributes
      *                                   or HTML attributes name="value" pairs
      * @param    int     $tabOffset      Indent offset in tabs
@@ -114,7 +114,7 @@ abstract class HTML_Common
 
     /**
      * Returns an HTML formatted attribute string
-     * 
+     *
      * @param    array   $attributes
      * @return   string
      * @access   private
@@ -134,7 +134,7 @@ abstract class HTML_Common
 
     /**
      * Returns a valid atrributes array from either a string or array
-     * 
+     *
      * @param    mixed   $attributes     Either a typical HTML attribute string or an associative array
      * @access   private
      * @return   array
@@ -196,7 +196,7 @@ abstract class HTML_Common
 
     /**
      * Updates the attributes in $attr1 with the values in $attr2 without changing the other existing attributes
-     * 
+     *
      * @param    array   $attr1      Original attributes array
      * @param    array   $attr2      New attributes array
      * @access   private
@@ -259,7 +259,7 @@ abstract class HTML_Common
 
     /**
      * Sets the HTML attributes
-     * 
+     *
      * @param    mixed   $attributes     Either a typical HTML attribute string or an associative array
      */
     public function setAttributes($attributes)
@@ -284,7 +284,7 @@ abstract class HTML_Common
 
     /**
      * Updates the passed attributes without changing the other existing attributes
-     * 
+     *
      * @param    mixed   $attributes     Either a typical HTML attribute string or an associative array
      */
     function updateAttributes($attributes)
@@ -402,8 +402,8 @@ abstract class HTML_Common
      * $charset = HTML_Common::charset();
      * </code>
      *
-     * @param   string  New charset to use. Omit if just getting the 
-     *                  current value. Consult the htmlspecialchars() docs 
+     * @param   string  New charset to use. Omit if just getting the
+     *                  current value. Consult the htmlspecialchars() docs
      *                  for a list of supported character sets.
      * @return  string  Current charset
      */
@@ -417,4 +417,3 @@ abstract class HTML_Common
         return $charset;
     }
 }
-?>
