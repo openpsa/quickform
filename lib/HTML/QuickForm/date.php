@@ -347,7 +347,7 @@ class HTML_QuickForm_date extends HTML_QuickForm_group
                         $options = $this->_createOptionList(1, 12);
                         array_walk($options, function(&$v, $k) {
                             $v = intval($v);
-                        };
+                        });
                         break;
                     case 'H':
                         $options = $this->_createOptionList(0, 23);
