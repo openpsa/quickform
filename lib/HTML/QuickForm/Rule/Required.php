@@ -38,4 +38,3 @@ class HTML_QuickForm_Rule_Required extends HTML_QuickForm_Rule
         return array('', "{jsVar} == ''");
     }
 }
-?>

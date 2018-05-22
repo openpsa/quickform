@@ -44,4 +44,3 @@ class HTML_QuickForm_Rule_Range extends HTML_QuickForm_Rule
         return array('', "{jsVar} != '' && {$test}");
     }
 }
-?>

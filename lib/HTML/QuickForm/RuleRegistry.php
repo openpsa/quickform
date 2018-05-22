@@ -316,4 +316,3 @@ class HTML_QuickForm_RuleRegistry
         return array($value, $tmp_reset);
     }
 }
-?>

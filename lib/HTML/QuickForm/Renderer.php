@@ -83,4 +83,3 @@ abstract class HTML_QuickForm_Renderer
     */
     abstract public function finishGroup(&$group);
 }
-?>

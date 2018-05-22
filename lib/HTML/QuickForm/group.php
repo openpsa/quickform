@@ -470,4 +470,3 @@ class HTML_QuickForm_group extends HTML_QuickForm_element
         }
     }
 }
-?>

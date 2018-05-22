@@ -267,4 +267,3 @@ class HTML_QuickForm_file extends HTML_QuickForm_input
         }
     }
 }
-?>

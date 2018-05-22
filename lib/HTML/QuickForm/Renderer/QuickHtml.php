@@ -153,4 +153,3 @@ class HTML_QuickForm_Renderer_QuickHtml extends HTML_QuickForm_Renderer_Default
         $this->_html = '';
     }
 }
-?>

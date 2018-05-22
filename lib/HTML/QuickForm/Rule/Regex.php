@@ -77,4 +77,3 @@ class HTML_QuickForm_Rule_Regex extends HTML_QuickForm_Rule
         return array("  var regex = " . $regex . ";\n", "{jsVar} != '' && !regex.test({jsVar})");
     }
 }
-?>

@@ -69,4 +69,3 @@ class HTML_QuickForm_image extends HTML_QuickForm_input
         return false;
     }
 }
-?>

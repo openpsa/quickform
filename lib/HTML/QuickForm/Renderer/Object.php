@@ -426,4 +426,3 @@ class QuickformElement
         return $ret;
     }
 }
-?>

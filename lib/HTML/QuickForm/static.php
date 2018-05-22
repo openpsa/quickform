@@ -129,4 +129,3 @@ class HTML_QuickForm_static extends HTML_QuickForm_element
         return null;
     }
 }
-?>

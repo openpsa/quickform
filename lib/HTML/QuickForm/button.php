@@ -40,4 +40,3 @@ class HTML_QuickForm_button extends HTML_QuickForm_input
         return false;
     }
 }
-?>

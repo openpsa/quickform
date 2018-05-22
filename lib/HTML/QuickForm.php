@@ -1682,4 +1682,3 @@ class HTML_QuickForm extends HTML_Common
         return isset($errorMessages[$value]) ? $errorMessages[$value] : $errorMessages[QUICKFORM_ERROR];
     }
 }
-?>

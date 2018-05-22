@@ -459,4 +459,3 @@ class HTML_QuickForm_select extends HTML_QuickForm_element
         }
     }
 }
-?>

@@ -85,4 +85,3 @@ class HTML_QuickForm_Rule_Compare extends HTML_QuickForm_Rule
         return array('', "'' != {jsVar}[0] && {$check}");
     }
 }
-?>

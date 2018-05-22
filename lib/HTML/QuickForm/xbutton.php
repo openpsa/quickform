@@ -116,4 +116,3 @@ class HTML_QuickForm_xbutton extends HTML_QuickForm_element
         }
     }
 }
-?>

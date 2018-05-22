@@ -121,4 +121,3 @@ class HTML_QuickForm_input extends HTML_QuickForm_element
         }
     }
 }
-?>

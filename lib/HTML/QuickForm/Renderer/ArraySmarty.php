@@ -370,4 +370,3 @@ class HTML_QuickForm_Renderer_ArraySmarty extends HTML_QuickForm_Renderer_Array
         $this->_error = $template;
     }
 }
-?>

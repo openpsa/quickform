@@ -94,6 +94,4 @@ class HTML_QuickForm_Rule_Callback extends HTML_QuickForm_Rule
         }
         return array('', "{jsVar} != '' && !{$callback}({$params})");
     }
-
 }
-?>

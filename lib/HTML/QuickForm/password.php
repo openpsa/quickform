@@ -62,4 +62,3 @@ class HTML_QuickForm_password extends HTML_QuickForm_input
                $this->_getPersistantData();
     }
 }
-?>

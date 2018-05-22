@@ -44,6 +44,4 @@ class HTML_QuickForm_Rule_Email extends HTML_QuickForm_Rule
     {
         return array("  var regex = " . $this->regex . ";\n", "{jsVar} != '' && !regex.test({jsVar})");
     }
-
 }
-?>

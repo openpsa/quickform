@@ -214,4 +214,3 @@ EOS;
         return $js . parent::toHtml();
     }
 }
-?>

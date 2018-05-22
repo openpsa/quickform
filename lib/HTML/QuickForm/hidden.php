@@ -47,4 +47,3 @@ class HTML_QuickForm_hidden extends HTML_QuickForm_input
         $renderer->renderHidden($this, $required, $error);
     }
 }
-?>

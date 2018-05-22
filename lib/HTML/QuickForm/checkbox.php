@@ -189,4 +189,3 @@ class HTML_QuickForm_checkbox extends HTML_QuickForm_input
         return $this->_prepareValue($value, $assoc);
     }
 }
-?>

@@ -51,4 +51,3 @@ class HTML_QuickForm_text extends HTML_QuickForm_input
         $this->updateAttributes(array('maxlength'=>$maxlength));
     }
 }
-?>

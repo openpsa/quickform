@@ -209,4 +209,3 @@ class HTML_QuickForm_advcheckbox extends HTML_QuickForm_checkbox
         return $this->_prepareValue($value, $assoc);
     }
 }
-?>
