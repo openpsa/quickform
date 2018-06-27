@@ -63,13 +63,13 @@ class HTML_QuickForm_Rule_Compare extends HTML_QuickForm_Rule
             case '!==':
             	return strval($values[0]) !== strval($values[1]);
             case '>':
-                return strval($values[0]) > strval($values[1]);
+                return floatval($values[0]) > floatval($values[1]);
             case '>=':
-                return strval($values[0]) >= strval($values[1]);
+                return floatval($values[0]) >= floatval($values[1]);
             case '<':
-                return strval($values[0]) < strval($values[1]);
+                return floatval($values[0]) < floatval($values[1]);
             case '<=':
-                return strval($values[0]) <= strval($values[1]);
+                return floatval($values[0]) <= floatval($values[1]);
         }
     }
 
