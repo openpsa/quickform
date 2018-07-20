@@ -695,15 +695,18 @@ class HTML_QuickForm extends HTML_Common
 
         } elseif (false !== ($pos = strpos($elementName, '['))) {
             $base = str_replace(
-                        array('\\', '\''), array('\\\\', '\\\''),
-                        substr($elementName, 0, $pos)
-                    );
-            $idx  = "['" . str_replace(
-                        array('\\', '\'', ']', '['), array('\\\\', '\\\'', '', "']['"),
-                        substr($elementName, $pos + 1, -1)
-                    ) . "']";
+                array('\\', '\''), array('\\\\', '\\\''),
+                substr($elementName, 0, $pos)
+            );
+            $keys = str_replace(
+                array('\\', '\'', ']', '['), array('\\\\', '\\\'', '', "']['"),
+                substr($elementName, $pos + 1, -1)
+            );
+            $idx  = "['" . $keys . "']";
+            $keyArray = explode("']['", $keys);
+
             if (isset($this->_submitValues[$base])) {
-                $value = eval("return (isset(\$this->_submitValues['{$base}']{$idx})) ? \$this->_submitValues['{$base}']{$idx} : null;");
+                $value = HTML_QuickForm_utils::recursiveValue($this->_submitValues[$base], $keyArray, null);
             }
 
             if ((is_array($value) || null === $value) && isset($this->_submitFiles[$base])) {

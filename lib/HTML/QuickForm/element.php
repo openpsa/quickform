@@ -232,14 +232,14 @@ abstract class HTML_QuickForm_element extends HTML_Common
         if (isset($values[$elementName])) {
             return $values[$elementName];
         } elseif (strpos($elementName, '[')) {
-            $myVar = "['" . str_replace(
-                         array('\\', '\'', ']', '['), array('\\\\', '\\\'', '', "']['"),
-                         $elementName
-                     ) . "']";
-            return eval("return (isset(\$values$myVar)) ? \$values$myVar : null;");
-        } else {
-            return null;
+            $keys = str_replace(
+                array('\\', '\'', ']', '['), array('\\\\', '\\\'', '', "']['"),
+                $elementName
+            );
+            $arrayKeys = explode("']['", $keys);
+            return HTML_QuickForm_utils::recursiveValue($values, $arrayKeys);
         }
+        return null;
     }
 
     /**
@@ -341,13 +341,12 @@ abstract class HTML_QuickForm_element extends HTML_Common
             if (!strpos($name, '[')) {
                 return array($name => $value);
             } else {
-                $valueAry = array();
-                $myIndex  = "['" . str_replace(
-                                array('\\', '\'', ']', '['), array('\\\\', '\\\'', '', "']['"),
-                                $name
-                            ) . "']";
-                eval("\$valueAry$myIndex = \$value;");
-                return $valueAry;
+                $keys = str_replace(
+                    array('\\', '\'', ']', '['), array('\\\\', '\\\'', '', "']['"),
+                    $name
+                );
+                $keysArray = explode("']['", $keys);
+                return HTML_QuickForm_utils::recursiveBuild($keysArray, $value);
             }
         }
     }
