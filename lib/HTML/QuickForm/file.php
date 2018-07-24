@@ -246,22 +246,24 @@ class HTML_QuickForm_file extends HTML_QuickForm_input
             return $values[$elementName];
         } elseif (false !== ($pos = strpos($elementName, '['))) {
             $base  = str_replace(
-                        array('\\', '\''), array('\\\\', '\\\''),
-                        substr($elementName, 0, $pos)
-                    );
-            $idx   = "['" . str_replace(
-                        array('\\', '\'', ']', '['), array('\\\\', '\\\'', '', "']['"),
-                        substr($elementName, $pos + 1, -1)
-                     ) . "']";
-            $props = array('name', 'type', 'size', 'tmp_name', 'error');
-            $code  = "if (!isset(\$values['{$base}']['name']{$idx})) {\n" .
-                     "    return null;\n" .
-                     "} else {\n" .
-                     "    \$value = array();\n";
-            foreach ($props as $prop) {
-                $code .= "    \$value['{$prop}'] = \$values['{$base}']['{$prop}']{$idx};\n";
+                array('\\', '\''), array('\\\\', '\\\''),
+                substr($elementName, 0, $pos)
+            );
+            $keys = "['" . str_replace(
+                array('\\', '\'', ']', '['), array('\\\\', '\\\'', '', "']['"),
+                substr($elementName, $pos + 1, -1)
+            ) . "']";
+            $keysArray = explode("']['", $keys);
+
+            if (!HTML_QuickForm_utils::recursiveIsset($values[$base]['name'], $keysArray)) {
+                return null;
             }
-            return eval($code . "    return \$value;\n}\n");
+            $props = array('name', 'type', 'size', 'tmp_name', 'error');
+            $value = array();
+            foreach ($props as $prop) {
+                $value[$prop] = HTML_QuickForm_utils::recursiveValue($values[$base][$prop], $keysArray);
+            }
+            return $value;
         } else {
             return null;
         }

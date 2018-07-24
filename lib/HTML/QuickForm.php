@@ -710,15 +710,17 @@ class HTML_QuickForm extends HTML_Common
             }
 
             if ((is_array($value) || null === $value) && isset($this->_submitFiles[$base])) {
-                $props = array('name', 'type', 'size', 'tmp_name', 'error');
-                $code  = "if (!isset(\$this->_submitFiles['{$base}']['name']{$idx})) {\n" .
-                         "    return null;\n" .
-                         "} else {\n" .
-                         "    \$v = array();\n";
-                foreach ($props as $prop) {
-                    $code .= "    \$v = HTML_QuickForm::arrayMerge(\$v, \$this->_reindexFiles(\$this->_submitFiles['{$base}']['{$prop}']{$idx}, '{$prop}'));\n";
+                if (!HTML_QuickForm_utils::recursiveIsset($this->_submitFiles[$base]['name'], $keyArray)) {
+                    $fileValue = null;
+                } else {
+                    $props = array('name', 'type', 'size', 'tmp_name', 'error');
+                    $fileValue = array();
+                    foreach ($props as $prop) {
+                        $data = HTML_QuickForm_utils::recursiveValue($this->_submitFiles[$base][$prop], $keyArray);
+                        $fileValue = HTML_QuickForm::arrayMerge($fileValue, $this->_reindexFiles($data, $prop));
+                    }
                 }
-                $fileValue = eval($code . "    return \$v;\n}\n");
+
                 if (null !== $fileValue) {
                     $value = null === $value? $fileValue: HTML_QuickForm::arrayMerge($value, $fileValue);
                 }
@@ -1060,11 +1062,12 @@ class HTML_QuickForm extends HTML_Common
                     if (false === strpos($elName, '[')) {
                         $this->_submitValues[$elName] = $this->_recursiveFilter($filter, $value);
                     } else {
-                        $idx  = "['" . str_replace(
-                                    array('\\', '\'', ']', '['), array('\\\\', '\\\'', '', "']['"),
-                                    $elName
-                                ) . "']";
-                        eval("\$this->_submitValues{$idx} = \$this->_recursiveFilter(\$filter, \$value);");
+                        $keys  = "['" . str_replace(
+                            array('\\', '\'', ']', '['), array('\\\\', '\\\'', '', "']['"),
+                            $elName
+                        ) . "']";
+                        $keysArray = explode("']['", $keys);
+                        $this->_submitValues = HTML_QuickForm_utils::recursiveBuild($keysArray, $this->_recursiveFilter($filter, $value), $this->_submitValues);
                     }
                 }
             }
@@ -1286,14 +1289,15 @@ class HTML_QuickForm extends HTML_Common
                             $isUpload = !empty($this->_submitFiles[$target]);
                         } else {
                             $base = str_replace(
-                                        array('\\', '\''), array('\\\\', '\\\''),
-                                        substr($target, 0, $pos)
-                                    );
-                            $idx  = "['" . str_replace(
-                                        array('\\', '\'', ']', '['), array('\\\\', '\\\'', '', "']['"),
-                                        substr($target, $pos + 1, -1)
-                                    ) . "']";
-                            eval("\$isUpload = isset(\$this->_submitFiles['{$base}']['name']{$idx});");
+                                array('\\', '\''), array('\\\\', '\\\''),
+                                substr($target, 0, $pos)
+                            );
+                            $keys  = "['" . str_replace(
+                                array('\\', '\'', ']', '['), array('\\\\', '\\\'', '', "']['"),
+                                substr($target, $pos + 1, -1)
+                            ) . "']";
+                            $keysArray = explode("']['", $keys);
+                            $isUpload = isset($this->_submitFiles[$base]['name']) && HTML_QuickForm_utils::recursiveIsset($this->_submitFiles[$base]['name'], $keysArray);
                         }
                         if ($isUpload && (!isset($submitValue['error']) || UPLOAD_ERR_NO_FILE == $submitValue['error'])) {
                             continue 2;
