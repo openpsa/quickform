@@ -21,6 +21,9 @@ class HTML_QuickForm_Rule_Range extends HTML_QuickForm_Rule
      */
     public function validate($value, $options = null)
     {
+        if (!is_scalar($value)) {
+            return false;
+        }
         $length = strlen($value);
         switch ($this->name) {
             case 'minlength': return ($length >= $options);

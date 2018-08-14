@@ -56,6 +56,9 @@ class HTML_QuickForm_Rule_Compare extends HTML_QuickForm_Rule
 
     function validate($values, $operator = null)
     {
+        if (!array_key_exists(0, $values) || !array_key_exists(1, $values) || !is_scalar($values[0]) || !is_scalar($values[1])) {
+            return false;
+        }
         switch ($this->_findOperator($operator)) {
             case '===':
                 return strval($values[0]) === strval($values[1]);

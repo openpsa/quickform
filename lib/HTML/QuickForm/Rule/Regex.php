@@ -40,6 +40,9 @@ class HTML_QuickForm_Rule_Regex extends HTML_QuickForm_Rule
      */
     public function validate($value, $regex = null)
     {
+        if (!is_scalar($value)) {
+            return false;
+        }
         // Fix for bug #10799: add 'D' modifier to regex
         if (isset($this->_data[$this->name])) {
             if (!preg_match($this->_data[$this->name] . 'D', $value)) {
