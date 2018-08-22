@@ -3,7 +3,7 @@ quickform
 
 Forward compatible fork of HTML_QuickForm
 
-This package is intended mainly as a drop-in replacement for existing installations of `HTML_Quickform`. See http://pear.php.net/package/HTML_QuickForm/docs for documentation.
+This package is intended mainly as a drop-in replacement for existing installations of `HTML_Quickform`. See http://pear.php.net/manual/en/package.html.html-quickform.php for documentation.
 
 The main differences to the original package are:
 
