@@ -249,10 +249,10 @@ class HTML_QuickForm_file extends HTML_QuickForm_input
                 array('\\', '\''), array('\\\\', '\\\''),
                 substr($elementName, 0, $pos)
             );
-            $keys = "['" . str_replace(
+            $keys = str_replace(
                 array('\\', '\'', ']', '['), array('\\\\', '\\\'', '', "']['"),
                 substr($elementName, $pos + 1, -1)
-            ) . "']";
+            );
             $keysArray = explode("']['", $keys);
 
             if (!HTML_QuickForm_utils::recursiveIsset($values[$base]['name'], $keysArray)) {

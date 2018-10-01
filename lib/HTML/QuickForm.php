@@ -702,7 +702,6 @@ class HTML_QuickForm extends HTML_Common
                 array('\\', '\'', ']', '['), array('\\\\', '\\\'', '', "']['"),
                 substr($elementName, $pos + 1, -1)
             );
-            $idx  = "['" . $keys . "']";
             $keyArray = explode("']['", $keys);
 
             if (isset($this->_submitValues[$base])) {
@@ -1062,10 +1061,10 @@ class HTML_QuickForm extends HTML_Common
                     if (false === strpos($elName, '[')) {
                         $this->_submitValues[$elName] = $this->_recursiveFilter($filter, $value);
                     } else {
-                        $keys  = "['" . str_replace(
+                        $keys = str_replace(
                             array('\\', '\'', ']', '['), array('\\\\', '\\\'', '', "']['"),
                             $elName
-                        ) . "']";
+                        );
                         $keysArray = explode("']['", $keys);
                         $this->_submitValues = HTML_QuickForm_utils::recursiveBuild($keysArray, $this->_recursiveFilter($filter, $value), $this->_submitValues);
                     }
@@ -1292,10 +1291,10 @@ class HTML_QuickForm extends HTML_Common
                                 array('\\', '\''), array('\\\\', '\\\''),
                                 substr($target, 0, $pos)
                             );
-                            $keys  = "['" . str_replace(
+                            $keys = str_replace(
                                 array('\\', '\'', ']', '['), array('\\\\', '\\\'', '', "']['"),
                                 substr($target, $pos + 1, -1)
-                            ) . "']";
+                            );
                             $keysArray = explode("']['", $keys);
                             $isUpload = isset($this->_submitFiles[$base]['name']) && HTML_QuickForm_utils::recursiveIsset($this->_submitFiles[$base]['name'], $keysArray);
                         }
