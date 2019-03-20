@@ -329,19 +329,6 @@ class HTML_QuickForm_group extends HTML_QuickForm_element
         return true;
     }
 
-    /**
-     * Call \HTML_QuickForm_element::onQuickFormEvent()
-     *
-     * @param     string    $event      Name of event
-     * @param     mixed     $arg        event arguments
-     * @param     object    &$caller    calling object
-     * @return bool
-     */
-    protected function element_onQuickFormEvent($event, $arg, &$caller)
-    {
-        return parent::onQuickFormEvent($event, $arg, $caller);
-    }
-
    /**
     * Accepts a renderer
     *
