@@ -189,7 +189,7 @@ class HTML_QuickForm_Renderer_Tableless extends HTML_QuickForm_Renderer_Default
             }
             if ($element->getType() != 'static' && !empty($id)) {
                 $html = str_replace('<label', '<label for="' . $id . '"', $html);
-                $element_html = preg_replace(preg_quote('#name="' . $id . '#'),
+                $element_html = preg_replace('/name="' . preg_quote($id) . '/',
                                              'id="' . $id . '" name="' . $id,
                                              $element_html,
                                              1);
@@ -216,7 +216,7 @@ class HTML_QuickForm_Renderer_Tableless extends HTML_QuickForm_Renderer_Default
                 }
                 $groupId = $this->_currentGroupName;
                 if ($element->getType() != 'static' && !empty($id)) {
-                    $element_html = preg_replace(preg_quote('#name="' . $id . '#'),
+                    $element_html = preg_replace('/name="' . preg_quote($id) . '/',
                                                  'id="' . $groupId . '" name="' . $id,
                                                  $element_html,
                                                  1);
