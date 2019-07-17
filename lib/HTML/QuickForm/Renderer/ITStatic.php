@@ -110,6 +110,10 @@ class HTML_QuickForm_Renderer_ITStatic extends HTML_QuickForm_Renderer
         }
     }
 
+    public function renderHtml(&$data)
+    {
+    }
+
    /**
     * Called when visiting a form, after processing all form elements
     *

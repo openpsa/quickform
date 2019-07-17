@@ -108,6 +108,14 @@ class HTML_QuickForm_Renderer_Object extends HTML_QuickForm_Renderer
         $this->_sectionCount = 0;
     }
 
+    public function renderHtml(&$data)
+    {
+    }
+
+    public function finishForm(&$form)
+    {
+    }
+
     function renderHeader(&$header)
     {
         $hobj = new StdClass;

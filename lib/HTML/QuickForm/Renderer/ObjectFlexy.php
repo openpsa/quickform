@@ -87,6 +87,14 @@ class HTML_QuickForm_Renderer_ObjectFlexy extends HTML_QuickForm_Renderer_Object
         $this->_flexy =& $flexy;
     }
 
+    public function renderHtml(&$data)
+    {
+    }
+
+    public function finishForm(&$form)
+    {
+    }
+
     function renderHeader(&$header)
     {
         if($name = $header->getName()) {
