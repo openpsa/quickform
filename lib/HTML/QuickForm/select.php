@@ -309,7 +309,6 @@ class HTML_QuickForm_select extends HTML_QuickForm_element
      * @param     mixed     $param2     (optional) See function detail
      * @param     mixed     $param3     (optional) See function detail
      * @param     mixed     $param4     (optional) See function detail
-     * @return    PEAR_Error on error or true
      * @throws    HTML_QuickForm_Error
      */
     public function load(&$options, $param1=null, $param2=null, $param3=null, $param4=null)
