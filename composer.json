@@ -1,5 +1,5 @@
 {
-    "name": "openpsa/quickform",
+    "name": "pointblue/quickform",
     "type": "library",
     "description": "PHP 5.4 compatible fork of HTML_QuickForm",
     "keywords": ["form", "quickform"],
