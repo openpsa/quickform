@@ -124,6 +124,11 @@ class HTML_QuickForm_Renderer_Default extends HTML_QuickForm_Renderer
     */
     var $_hiddenHtml = '';
 
+    //For backward compatibility
+    public function __construct(){
+
+    }
+
    /**
     * returns the HTML generated for the form
     *
