@@ -124,6 +124,14 @@ class HTML_QuickForm_Renderer_Default extends HTML_QuickForm_Renderer
     */
     var $_hiddenHtml = '';
 
+    /**
+     * Compatibility with parent::__construct() calls from inherited classes
+     */
+    public function __construct()
+    {
+
+    }
+
    /**
     * returns the HTML generated for the form
     *
