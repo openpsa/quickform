@@ -31,7 +31,6 @@ class HTML_QuickForm_Renderer_QuickHtml extends HTML_QuickForm_Renderer_Default
      */
     public function __construct()
     {
-        parent::__construct();
         // The default templates aren't used for this renderer
         $this->clearAllTemplates();
     }
