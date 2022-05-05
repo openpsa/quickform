@@ -228,7 +228,7 @@ abstract class HTML_QuickForm_element extends HTML_Common
         if (empty($values)) {
             return null;
         }
-        $elementName = $this->getName();
+        $elementName = (string) $this->getName();
         if (isset($values[$elementName])) {
             return $values[$elementName];
         } elseif (strpos($elementName, '[')) {
