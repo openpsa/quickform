@@ -55,7 +55,7 @@ class HTML_QuickForm_advcheckbox extends HTML_QuickForm_checkbox
      * @param     mixed     $values         (optional)Values to pass if checked or not checked
      *
      */
-    public function __construct($elementName=null, $elementLabel=null, $text=null, $attributes=null, $values=null)
+    public function __construct($elementName=null, $elementLabel=null, $text='', $attributes=null, $values=null)
     {
         parent::__construct($elementName, $elementLabel, $text, $attributes);
         $this->setValues($values);

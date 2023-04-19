@@ -19,7 +19,7 @@ class HTML_QuickForm_static extends HTML_QuickForm_element
      * @var       string
      * @access    private
      */
-    var $_text = null;
+    var $_text = '';
 
     /**
      * Class constructor
@@ -27,7 +27,7 @@ class HTML_QuickForm_static extends HTML_QuickForm_element
      * @param     string    $elementLabel   (optional)Label
      * @param     string    $text           (optional)Display text
      */
-    public function __construct($elementName=null, $elementLabel=null, $text=null)
+    public function __construct($elementName=null, $elementLabel=null, $text='')
     {
         parent::__construct($elementName, $elementLabel);
         $this->_persistantFreeze = false;
