@@ -62,7 +62,7 @@ class HTML_QuickForm_static extends HTML_QuickForm_element
      */
     public function setText($text)
     {
-        $this->_text = $text;
+        $this->_text = (string) $text;
     }
 
     /**

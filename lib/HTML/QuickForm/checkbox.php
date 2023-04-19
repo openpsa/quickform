@@ -108,7 +108,7 @@ class HTML_QuickForm_checkbox extends HTML_QuickForm_input
      */
     public function setText($text)
     {
-        $this->_text = $text;
+        $this->_text = (string) $text;
     }
 
     /**
