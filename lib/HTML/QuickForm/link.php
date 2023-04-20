@@ -33,7 +33,7 @@ class HTML_QuickForm_link extends HTML_QuickForm_static
      * @param     mixed     $attributes     (optional)Either a typical HTML attribute string
      *                                      or an associative array
      */
-    public function __construct($elementName=null, $elementLabel=null, $href=null, $text=null, $attributes=null)
+    public function __construct($elementName=null, $elementLabel=null, $href=null, $text='', $attributes=null)
     {
         parent::__construct($elementName, $elementLabel, $attributes);
         $this->_persistantFreeze = false;

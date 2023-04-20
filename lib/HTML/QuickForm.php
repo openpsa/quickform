@@ -602,7 +602,7 @@ class HTML_QuickForm extends HTML_Common
      * @return   HTML_QuickForm_group       reference to a newly added group
      * @throws   HTML_QuickForm_Error
      */
-    public function &addGroup($elements, $name=null, $groupLabel='', $separator=null, $appendName = true)
+    public function &addGroup($elements, $name='', $groupLabel='', $separator=null, $appendName = true)
     {
         static $anonGroups = 1;
 

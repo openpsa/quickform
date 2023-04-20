@@ -33,7 +33,7 @@ class HTML_QuickForm_radio extends HTML_QuickForm_input
      * @param     string    Input field value
      * @param     mixed     Either a typical HTML attribute string or an associative array
      */
-    public function __construct($elementName=null, $elementLabel=null, $text=null, $value=null, $attributes=null)
+    public function __construct($elementName=null, $elementLabel=null, $text='', $value=null, $attributes=null)
     {
         parent::__construct($elementName, $elementLabel, $attributes);
         if (isset($value)) {
@@ -76,7 +76,7 @@ class HTML_QuickForm_radio extends HTML_QuickForm_input
      */
     public function toHtml()
     {
-        if (0 == strlen((string) $this->_text)) {
+        if (0 == strlen($this->_text)) {
             $label = '';
         } elseif ($this->_flagFrozen) {
             $label = $this->_text;
@@ -108,7 +108,7 @@ class HTML_QuickForm_radio extends HTML_QuickForm_input
      */
     public function setText($text)
     {
-        $this->_text = $text;
+        $this->_text = (string) $text;
     }
 
     /**
