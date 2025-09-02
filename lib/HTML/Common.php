@@ -127,7 +127,7 @@ abstract class HTML_Common
             $charset = self::charset();
             foreach ($attributes as $key => $value) {
                 if (is_scalar($value)) {
-                    $strAttr .= ' ' . $key . '="' . htmlspecialchars($value, ENT_COMPAT, $charset) . '"';
+                    $strAttr .= ' ' . $key . '="' . htmlspecialchars((string) $value, ENT_COMPAT, $charset) . '"';
                 }
             }
         }

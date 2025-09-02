@@ -152,8 +152,8 @@ abstract class HTML_QuickForm_element extends HTML_Common
      */
     public function getFrozenHtml()
     {
-        $value = $this->getValue();
-        return (strlen((string) $value)? htmlspecialchars($value): '&nbsp;') .
+        $value = (string) $this->getValue();
+        return (strlen($value)? htmlspecialchars($value): '&nbsp;') .
                $this->_getPersistantData();
     }
 
